@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 
+// For Heroku
+var PORT = process.env.PORT || 5000;
+
 app.get('/getReminders', function (req, res) {
 
     let reminders = `
@@ -26,7 +29,7 @@ app.get('/getReminders', function (req, res) {
    res.send(reminders);
 })
 
-var server = app.listen(8081, function () {
+var server = app.listen(PORT, function () {
    var host = server.address().address
    var port = server.address().port
    
